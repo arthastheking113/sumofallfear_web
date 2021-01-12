@@ -24,6 +24,7 @@
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/sweetalert2.css" rel="stylesheet">
+  <link href="css/prism.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -120,14 +121,15 @@
                 </p>
                 <br>
                 <div class="text-center">
-                  <a target="_blank" href="https://github.com/arthastheking113/tacocat" >
+                  <a target="_blank" href="https://github.com/arthastheking113/sumofallfear_web" >
                     <button type="button" class="button button-a button-round" >Github Repository</button>
                   </a>
+                  <button type="button" class="button button-a button-round" data-toggle="modal" data-target="#exampleModal">Javascript Algorithm</button>
                 </div>
               </div> 
             </div>
           </div>
-          
+     
           <hr>
           <div class="row">
             <div class="input-group mb-3">
@@ -169,6 +171,67 @@
   </div>
 </section><!-- End About Section -->
 
+<!--popup button modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content modal-xl">
+      <div class="modal-body text-center">
+        <pre>
+          <code class="language-js">
+function clearword(){
+  document.getElementById("list").value = ''
+  document.getElementById("k_value").value = ''
+  document.getElementById("result").placeholder = "Result"
+}
+function checker(){
+  let num_list = document.getElementById("list").value.split(","),
+    num_len =  document.getElementById("list").value.split(",").length,
+    k_value = document.getElementById("k_value").value,
+    isvalue = false,
+    rem_num1 = [],
+    rem_num2 = [];
+  if (!num_list.some(isNaN) && k_value != ''){
+    for (i=0; i <= num_len-1; i++){
+      for (j=0; j <= num_len-1; j++){
+          if (i != j){
+            if (parseInt(num_list[i]) + parseInt(num_list[j]) == k_value){
+                isvalue = true;
+                rem_num1 = rem_num1 + [num_list[i]]
+                rem_num2 = rem_num2 + [num_list[j]]
+          }
+        }
+    }
+    }
+    if (isvalue){
+    document.getElementById("result").placeholder = "Success!"
+    for(k=0; k < rem_num2.length; k++){
+        document.getElementById("result2").innerHTML += `${rem_num1[k]} + ${rem_num2[k]} = ${k_value}<br>` 
+    }
+
+    }else{
+    document.getElementById("result").placeholder = "No solution found, try different k value! "
+    }
+  }else if (k_value == '') {
+    document.getElementById("result").placeholder = "K value is empty"
+  }else{
+    document.getElementById("result").placeholder = "You may enter something different than a number!"
+  }
+}
+          </code>
+        </pre>
+      </div>
+      <div class="modal-footer text-center">
+        <div class="col">
+          <a target="_blank" href="https://github.com/arthastheking113/sumofallfear_web">
+            <button type="button" class="button button-a btn-sm button-rouded text-center">Go To Github Repository</button>
+          </a>
+          <button type="button" class="button button-a btn-sm button-rouded" style="background-color: rgb(158, 160, 160);" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--end popup modal button-->
   <!-- ======= Footer ======= -->
   <footer>
     <div class="container">
@@ -206,7 +269,7 @@
   <script src="js/sweetalert2.all.min.js"></script>
   <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
   <script src="js/sweetalert2.min.js"></script>
-
+  <script src="js/prism.js"></script>
 </body>
 
 </html>
