@@ -2,8 +2,11 @@ function clearword(){
   document.getElementById("list").value = ''
   document.getElementById("k_value").value = ''
   document.getElementById("result").placeholder = "Result"
+  document.getElementById("result2").innerHTML = ""
 }
 function checker(){
+  document.getElementById("result").placeholder = "Result"
+  document.getElementById("result2").innerHTML = ""
   let num_list = document.getElementById("list").value.split(","),
       num_len =  document.getElementById("list").value.split(",").length,
       k_value = document.getElementById("k_value").value,
@@ -16,8 +19,8 @@ function checker(){
         if (i != j){
           if (parseInt(num_list[i]) + parseInt(num_list[j]) == k_value){
             isvalue = true;
-            rem_num1 = rem_num1 + [num_list[i]]
-            rem_num2 = rem_num2 + [num_list[j]]
+            rem_num1 = rem_num1.concat(parseInt(num_list[i]))
+            rem_num2 = rem_num2.concat(parseInt(num_list[j]))
           }
         }
       }
@@ -37,4 +40,17 @@ function checker(){
     document.getElementById("result").placeholder = "You may enter something different than a number!"
   }
   
+}
+function advance(){
+  clearword();
+  let random_number = Math.floor(Math.random() * 1000),
+      random_k = Math.floor(Math.random() * 2000),
+      my_array = "";
+  for (i=0; i < random_number; i++){
+    my_array = my_array + "," + Math.floor(Math.random() * 1000).toString()
+  }
+  my_array = my_array.split(",").slice(1,my_array.length);
+  document.getElementById("list").value = my_array
+  document.getElementById("k_value").value = random_k
+  checker();
 }
