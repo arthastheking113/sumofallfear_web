@@ -119,6 +119,9 @@
                   <b>Example:</b> the user enters an array [10, 7, 15, 21] and the k value is 17 so the out put will be Correct because 10 + 7 = 17. If 
                   the user enter k = 18 then the out put will be Incorrect because none of the number of array can be added up to equal to 18.
                 </p>
+                <p class="lead">
+                  OR you can simply press the <b>"Advance Button"</b> if you are too <b>lazy like me</b> to enter number.
+                </p>
                 <br>
                 <div class="text-center">
                   <a target="_blank" href="https://github.com/arthastheking113/sumofallfear_web" >
@@ -184,7 +187,7 @@ function clearword(){
   document.getElementById("k_value").value = ''
   document.getElementById("result").placeholder = "Result"
   document.getElementById("result2").innerHTML = ""
-  }
+}
 function checker(){
   document.getElementById("result").placeholder = "Result"
   document.getElementById("result2").innerHTML = ""
@@ -211,6 +214,7 @@ function checker(){
       for(k=0; k < rem_num2.length; k++){
         document.getElementById("result2").innerHTML += `${rem_num1[k]} + ${rem_num2[k]} = ${k_value}<br>` 
       }
+
     }else{
       document.getElementById("result").placeholder = "No solution found, try different k value! "
     }
@@ -219,6 +223,7 @@ function checker(){
   }else{
     document.getElementById("result").placeholder = "You may enter something different than a number!"
   }
+  
 }
 function advance(){
   clearword();
