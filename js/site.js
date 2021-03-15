@@ -3,6 +3,13 @@ function clearword(){
   document.getElementById("k_value").value = ''
   document.getElementById("result").placeholder = "Result"
   document.getElementById("result2").innerHTML = ""
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Everything is Clearrrr!',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 function checker(){
   document.getElementById("result").placeholder = "Result"
@@ -26,20 +33,49 @@ function checker(){
       }
     }
     if (isvalue){
-      document.getElementById("result").placeholder = "Success!"
+      document.getElementById("result").placeholder = `Success! You have ${rem_num2.length} results!`
       for(k=0; k < rem_num2.length; k++){
         document.getElementById("result2").innerHTML += `${rem_num1[k]} + ${rem_num2[k]} = ${k_value}<br>` 
       }
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Great! I got your result!!!',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
 
     }else{
       document.getElementById("result").placeholder = "No solution found, try different k value! "
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'No solution found, try different k value >.< !!!',
+        showConfirmButton: false,
+        timer: 1200
+      })
     }
   }else if (k_value == '') {
+
     document.getElementById("result").placeholder = "K value is empty"
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'K value is empty >.< !!!',
+      showConfirmButton: false,
+      timer: 1200
+    })
   }else{
     document.getElementById("result").placeholder = "You may enter something different than a number!"
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'You may enter something different than a number >.< !!!',
+      showConfirmButton: false,
+      timer: 1200
+    })
   }
-  
+   
 }
 function advance(){
   clearword();
@@ -53,4 +89,11 @@ function advance(){
   document.getElementById("list").value = my_array
   document.getElementById("k_value").value = random_k
   checker();
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Great! I got your result!!!',
+    showConfirmButton: false,
+    timer: 1500
+  })  
 }
